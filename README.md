@@ -1,5 +1,7 @@
 # How does a chat work?
 
+![PHP Real Time Chat](https://github.com/JaxonRailey/php-real-time-chat/blob/main/screenshot.png?raw=true)
+
 Instant messaging systems have replaced the SMS, in this repo what's under the hood of a chat. This very simple example makes use of websocket, a particular software object that deals with the transport of information between the various clients.
 
 All code is pure PHP / JS / HTML / CSS.
