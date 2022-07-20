@@ -1,0 +1,275 @@
+body {
+    background: #C5DDEB;
+    font: 14px/20px sans-serif;
+    color: white;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    background: #444753;
+    display: flex;
+}
+
+.container:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+aside {
+    width: 260px;
+    height: 100vh;
+    overflow: auto;
+}
+
+aside .search {
+    padding: 20px;
+}
+
+aside .search input {
+    border-radius: 3px;
+    border: none;
+    padding: 14px;
+    color: white;
+    background: #6A6C75;
+    width: 100%;
+    font-size: 14px;
+}
+
+aside .search input::placeholder {
+    color: #a4a9b6;
+    font-size: 17px;
+}
+
+aside ul {
+    padding: 20px;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+aside ul li {
+    padding: 10px 20px 10px;
+    border-bottom: 1px solid #6a6c75;
+    display: flex;
+}
+
+aside img {
+    height: 55px;
+}
+
+aside .user {
+    margin-top: 8px;
+    padding-left: 8px;
+}
+
+aside .user div:first-child {
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+aside .user div:last-child {
+    color: #92959E;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.chat {
+    background: #F2F5F8;
+    color: #434651;
+    width: calc(100% - 260px);
+}
+
+.chat header {
+    padding: 20px;
+    border-bottom: 2px solid white;
+}
+
+.chat header img {
+    float: left;
+    height: 50px;
+    border-radius: 100%;
+    padding-right: 10px;
+}
+
+.chat header .profile {
+    margin-top: 6px;
+}
+
+.chat header .profile .name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.chat header .status {
+    color: #92959E;
+}
+
+.chat main {
+    padding: 30px 30px 0;
+    border-bottom: 2px solid white;
+    overflow-y: scroll;
+    height: calc(100vh - (89px + 101px));
+}
+
+.chat main.close {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #ff0751;
+}
+
+.chat main ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.chat main ul li {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+.chat main ul li .avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background: #ddd;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.chat main ul li .message {
+    max-width: 450px;
+    padding: 15px;
+    border-radius: 15px;
+    background: #86BB71;
+}
+
+.chat main ul li .message .box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chat main ul li .name {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.chat main ul li .time {
+    font-size: 0.85em;
+}
+
+.chat main ul li.received .message {
+    border-bottom-left-radius: 0;
+}
+
+.chat main ul li.sent {
+    flex-direction: row-reverse;
+}
+
+.chat main ul li.sent .message {
+    background: #94C2ED;
+    color: #fff;
+    border-bottom-right-radius: 0;
+}
+
+.chat main ul li.sent .avatar {
+    margin-left: 10px;
+}
+
+.chat footer {
+    padding: 30px;
+}
+
+.chat footer input {
+    width: 100%;
+    border: none;
+    padding: 10px 20px;
+    font: 14px sans-serif;
+    line-height: 22px;
+    border-radius: 5px;
+    resize: none;
+    outline: 1px solid #a4a6ae;
+}
+
+.notification {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.notification .toast {
+    position: relative;
+    margin: 15px;
+    text-align: left;
+    padding: 20px 0;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+    -webkit-animation: 5s ease 0s normal forwards 1 fade;
+    animation: 5s ease 0s normal forwards 1 fade;
+}
+
+.notification .toast:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.notification .toast p {
+    padding: 0 50px 0 20px;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #878787;
+}
+
+.notification .toast.entry:before {
+    background-color: #2BDE3F;
+}
+
+.notification .toast.leave:before {
+    background-color: #FFC007;
+}
+
+.notification .toast.error:before {
+    background-color: #ff0751;
+}
+
+@keyframes fade {
+    0%   { opacity:0; }
+    10%  { opacity:1; }
+    90%  { opacity:1; }
+    100% { opacity:0; }
+}
+
+@media only screen and (max-width: 800px) {
+    aside {
+        display: none;
+    }
+
+    .chat {
+        width: 100vw;
+    }
+}
