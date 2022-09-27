@@ -38,7 +38,7 @@ class Chat {
      * @return bool
      */
 
-    function send(string $message): bool {
+    public function send(string $message): bool {
 
         $raw = $this->mask($message);
 
@@ -58,7 +58,7 @@ class Chat {
      * @return string
      */
 
-    public function unmask(string $value): string {
+    protected function unmask(string $value): string {
 
         $length = ord($value[1]) & 127;
 
@@ -91,7 +91,7 @@ class Chat {
      * @return string
      */
 
-    function mask(string $value): string {
+    protected function mask(string $value): string {
 
         $byte   = 10000000 | (00000001 & 00001111);
         $length = strlen($value);
@@ -119,7 +119,7 @@ class Chat {
      * @return void
      */
 
-    function handshake(string $header, $socket, string $address, int $port): void {
+    protected function handshake(string $header, $socket, string $address, int $port): void {
 
         $headers = [];
         $lines   = preg_split("/\r\n/", $header);
